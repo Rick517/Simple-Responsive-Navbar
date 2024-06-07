@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style:none;
+            text-decoration: none;
+            font-family: Poppins;
+        }
+
+        :root {
+            --primary-blue-color: #0077B5;
+            --light-bright-blue: #1b9bff;
+            --dark-gray-blue: #2c3e50;
+
+            --primary-height: 4rem;
+        }
+
+        nav {
+            width:100%;
+            height: var(--primary-height);
+            user-select: none;
+            background-color: var(--primary-blue-color);
+            padding-inline:2em;
+        }
+
+        nav .logo {
+            padding-left: .4em;
+            padding-right: 2.4em;
+            font-weight: bold;
+            font-size: 1.9rem;
+            color: white;
+
+            /* we can use line height to align text vertically */
+            line-height: var(--primary-height);
+        }
+        
+        nav ul {
+            float:right;
+        }
+
+        nav ul li {
+            display: inline-block;
+            line-height: var(--primary-height);
+            margin-inline: .2em;
+        }
+
+        nav ul li a {
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 500;
+            color:white;
+            padding: .2em .5em;
+            border-radius: 3px;
+        }
+
+        nav a.active, nav a:hover {
+            background-color: var(--light-bright-blue);
+            transition: .5s;
+        }
+
+        #check, nav .check-btn {
+            display: none;
+        }
+
+        nav .check-btn {
+            line-height: var(--primary-height);
+            float:right;
+            font-size: 1.8em;
+            color:white;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        @media (max-width:952px){
+            label.logo {
+                font-size: 1.7rem;
+            }
+
+            nav ul li a {
+                font-size: .92rem;
+            }
+        }
+
+        @media (max-width: 768px){
+            label.logo {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                /* exactly height and width */
+                position:fixed;
+                left:-100%; 
+                height:100vh;
+                width:100%;
+                top: var(--primary-height);
+
+                background-color: var(--dark-gray-blue);
+                text-align: center;
+                transition: .5s;
+            }
+
+            nav ul li {
+                display: block;
+
+            }
+
+            nav ul li a {
+                font-size: .8rem;
+                font-size: 1rem;
+                
+            }
+
+            nav a.active, nav a:hover {
+                background-color: inherit;
+                color: var(--light-bright-blue);
+            }
+
+            nav .check-btn {
+                display: block;
+            }
+
+            nav #check:checked ~ ul {
+                left: 0;
+            }
+
+            nav #check:checked ~ .check-btn {
+                transform: rotate(-90deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- The label type has an attribute for.
+            It means that we click we get checked because of 
+            for by id element -->
+            <input type="checkbox" id="check">
+            <label for="check" class="check-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <label class="logo">DesignX</label>
+            <ul>
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script src="https://kit.fontawesome.com/40b2313160.js" crossorigin="anonymous"></script>
+</body>
+</html>
